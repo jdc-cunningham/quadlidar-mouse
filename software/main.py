@@ -35,7 +35,7 @@ pyautogui.FAILSAFE = False
 pyautogui.moveTo(300, 300)
 
 trackpad_on = False
-mouse_increment = 10
+mouse_increment = 50
 
 def led_on():
   GPIO.output(LED_PIN, GPIO.HIGH)
@@ -188,19 +188,15 @@ def check_mouse_dir():
   d4a = avg(d4_a)
 
   if (d1a > 0 and d1a < trackpad_max):
-    print('move right')
     move_mouse('right')
   
   if (d2a > 0 and d2a < trackpad_max):
-    print('move left')
     move_mouse('left')
 
   if (d3a > 0 and d3a < trackpad_max):
-    print('move up')
     move_mouse('up')
   
   if (d4a > 0 and d4a < trackpad_max):
-    print('move down')
     move_mouse('down')
 
 while True:
@@ -227,6 +223,4 @@ while True:
 
     check_mouse_dir()
 
-  print(str(d1) + ', ' + str(d2) + ', ' + str(d3) + ', ' + str(d4))
-
-  time.sleep(0.01)
+  # print(str(d1) + ', ' + str(d2) + ', ' + str(d3) + ', ' + str(d4))
