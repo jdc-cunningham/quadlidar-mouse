@@ -28,12 +28,12 @@ tof_tr = None
 tof_st = None
 tof_sb = None
 
+pyautogui.moveTo(300, 300)
+
 screen_width, screen_height = pyautogui.size()
 mouse_x, mouse_y = pyautogui.position()
 
 pyautogui.FAILSAFE = False
-pyautogui.moveTo(300, 300)
-
 trackpad_on = False
 mouse_increment = 50
 
