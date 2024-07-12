@@ -20,7 +20,7 @@ class QLTP_Mouse():
     self.tof_rt = None
     self.tof_rb = None
     self.mouse_events = MouseEvents()
-    self.mouse_buttons = MouseButtons()
+    self.mouse_buttons = MouseButtons(self.mouse_events)
 
     self.setup_tof_senors()
     self.start_mouse_btns()
@@ -29,8 +29,8 @@ class QLTP_Mouse():
   def setup_tof_senors(self):
     self.tof_tl = ToF(self.TOF_TL_SD_PIN, 0x2B)
     self.tof_tr = ToF(self.TOF_TR_SD_PIN, 0x2D)
-    self.tof_rt = ToF(self.TOF_TR_SD_PIN, 0x2F)
-    self.tof_rb = ToF(self.TOF_TR_SD_PIN, 0x2E)
+    self.tof_rt = ToF(self.TOF_RT_SD_PIN, 0x2F)
+    self.tof_rb = ToF(self.TOF_RB_SD_PIN, 0x2E)
     
     self.tof_tl.set_low()
     self.tof_tr.set_low()
@@ -49,3 +49,5 @@ class QLTP_Mouse():
 
   def start_tof_sensors(self):
     self.trackpad = Trackpad([self.tof_tl, self.tof_tr, self.tof_rt, self.tof_rb], self)
+
+QLTP_Mouse()

@@ -31,7 +31,9 @@ class MouseButtons():
       if GPIO.input(self.TRACKPAD_TOGGLE_PIN) == GPIO.HIGH:
         self.trackpad_on = not self.trackpad_on
 
-        self.led_on() if self.trackpad_on else self.led_off()
+        # state is flipped due to short on board
+        # having trackpad on starts moving mouse suggesting fault on i2c sensor
+        self.led_off() if self.trackpad_on else self.led_on()
 
       if GPIO.input(self.LEFT_CLICK_PIN) == GPIO.HIGH:
         self.mouse_events.left_click()
@@ -39,7 +41,7 @@ class MouseButtons():
       if GPIO.input(self.RIGHT_CLICK_PIN) == GPIO.HIGH:
         self.mouse_events.right_click()
 
-      time.sleep(0.1)
+      time.sleep(0.15)
 
   def start(self):
     Thread(target=self.listen_buttons).start()

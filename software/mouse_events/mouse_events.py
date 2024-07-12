@@ -1,7 +1,8 @@
 import os
-import pyautogui
 
 os.environ['DISPLAY'] = ':0'
+
+import pyautogui
 
 pyautogui.FAILSAFE = False
 
@@ -12,7 +13,7 @@ class MouseEvents():
   def __init__(self):
     self.mouse_x = 50 # start near top left
     self.mouse_y = 50
-    self.mouse_increment = 1
+    self.mouse_increment = 50
     self.screen_width = screen_width
     self.screen_height = screen_height
 

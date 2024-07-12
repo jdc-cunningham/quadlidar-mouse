@@ -1,13 +1,16 @@
+import time
+
 class Trackpad():
   def __init__(self, tof_sensors, main):
     self.tof_sensors = tof_sensors # array
-    self.d1a = []
-    self.d2a = []
-    self.d3a = []
-    self.d4a = []
+    self.d1_a = []
+    self.d2_a = []
+    self.d3_a = []
+    self.d4_a = []
     self.main = main
 
     self.start_sensors()
+    self.start()
 
   # dupe function from tof_sensor.py file
   def avg(self, arr):
@@ -37,6 +40,9 @@ class Trackpad():
 
   def start(self):
     while True:
+      if self.main.mouse_buttons.trackpad_on:
+        continue
+
       if (len(self.d1_a) > 3):
         self.d1_a.pop(0)
         self.d2_a.pop(0)
