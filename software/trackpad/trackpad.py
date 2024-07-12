@@ -5,7 +5,8 @@ class Trackpad():
     self.d2a = []
     self.d3a = []
     self.d4a = []
-    
+    self.main = main
+
     self.start_sensors()
 
   # dupe function from tof_sensor.py file
