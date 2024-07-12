@@ -1,6 +1,6 @@
 ### Quadlidar trackpad
 
-Not actually lidar it's a time of flight ranging sensor
+Not actually lidar it's a time of flight ranging sensor (using infrared)
 
 <img src="./quadlidar.JPG"/>
 
